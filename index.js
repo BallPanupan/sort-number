@@ -1,7 +1,4 @@
-let number = [1, 0, 3, 1, 3, 1];
-let stackNumber = [];
-let numberLocation = [];
-let totleNumber = [];
+let number = [9, 0, 3, 1, 3, 0, 4, 2, 7, 4];
 
 //check max number 
 function macNumber(number) {
@@ -17,7 +14,7 @@ function macNumber(number) {
     return maxNumber;
 }
 
-function countNumber(number, maxNumber){
+function countNumber(number){
     let counting = [];
     for (let index = 0; index < maxNumber+1; index++) {
         counting[index] = 0;
@@ -41,30 +38,37 @@ function sumNumber(cNumber, maxNumber){
         sNumber[index] = sNumber[index-1] + cNumber[index];
 
     }
-    console.log(sNumber); 
     return sNumber;
 }
 
+function pointNumber(locationNumner, maxNumber){
+    let moveArray = [];
+    moveArray[0] = 0;
+
+    for (let index = 1; index < maxNumber+1; index++) {
+        moveArray.push(locationNumner[index-1])
+    }
+    return moveArray;
+}
+
+function sortNumber(cNumber){
+    let sortNumber = [];
+
+    for (let index = 0; index < maxNumber+1; index++) {
+        
+        for (let index2 = 0; index2 < cNumber[index]; index2++) {
+            sortNumber.push(index);
+        }  
+        
+    }
+    return sortNumber;
+}
 
 
 maxNumber = macNumber(number);
-// console.log("Max Number : ", maxNumber);
+cNumber = countNumber(number);
+locationNumner = sumNumber(cNumber);
+pNumber = pointNumber(locationNumner);
+sort = sortNumber(cNumber, pNumber);
 
-cNumber = countNumber(number, macNumber(number));
-console.log(cNumber);
-
-xxxxx = sumNumber(cNumber, maxNumber);
-// console.log(xxxxx);
-
-
-
-
-
-// numberLocation = stackNumber;
-// console.log(stackNumber);
-
-// for (let index = 0; index < maxNumber; index++) {
-//     numberLocation[index+1] = stackNumber[index] + stackNumber[index+1]     
-// }
-
-// console.log(numberLocation);
+console.log(sort);
